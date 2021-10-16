@@ -41,4 +41,7 @@
   <li>Manual Técnico [Cloud] <b>Visitar en</b> https://drive.google.com/file/d/1F0PxrKd0CDotdkvjOMkknaQP1YoYAskI/view?usp=sharing </li>
 </ul>
 
+<h1>Vídeo explicativo - Segundo Avance 📹</h1>
+<p>Enlace a vídeo de segundo avance - <b>Visualizar:</b> https://www.youtube.com/watch?v=-4S_k7FRCvE </p>
+
 
