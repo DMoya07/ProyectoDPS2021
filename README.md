@@ -39,7 +39,7 @@
   <li>Documentación de API <b>Visitar en</b> https://documenter.getpostman.com/view/13637029/UV5RnfwR </li>
   <li>Enlace a API <b>Visitar en</b> https://rest-server-dps-api.herokuapp.com/ </li>
   <li>Manual Técnico [Cloud] <b>Visitar en</b> https://drive.google.com/file/d/1F0PxrKd0CDotdkvjOMkknaQP1YoYAskI/view?usp=sharing </li>
-    <li>Manual de usuario <b>Visitar en</b> https://drive.google.com/drive/folders/1OKNYBNmoz8oMWdvNZSD1dCRa9yXY2gqd?usp=sharing </li>
+  <li>Manual de usuario [Cloud] <b>Visitar en</b> https://drive.google.com/drive/folders/1OKNYBNmoz8oMWdvNZSD1dCRa9yXY2gqd?usp=sharing </li>
 </ul>
 
 <h1>Vídeo explicativo - Segundo Avance 📹</h1>
