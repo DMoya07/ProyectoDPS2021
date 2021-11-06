@@ -1,5 +1,5 @@
 <h1>ProyectoDPS2021 📱🖥️💻</h1>
-<b>Desarrollo de aplicación para registro de becarios del programa Fantel como parte del Proyecto de Catedra para la materia Desarrollo de Software Multiplataforma</b>
+<b>Desarrollo de aplicación para registro de becarios como parte del Proyecto de Catedra para la materia Desarrollo de Software Multiplataforma</b>
 
 <h1>Herramientas 🛠️ </h1>
 <p>Listado de Herramientas con las que se trabajará durante el proyecto</p>
