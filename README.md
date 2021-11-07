@@ -13,6 +13,8 @@
   <li>StarUML</li>
   <li>Heroku (Deployment)</li>
   <li>Balsamiq Wireframes</li>
+  <li>Snack Expo</li>
+  <li>Talend API Tester</li>
 </ul>
 
 <h1>Creadores ✒️</h1>
@@ -36,8 +38,9 @@
   <li>Tablero de proyecto [Trello] <b>Visitar en</b> https://trello.com/b/RBIj1zL2/proyecto </li>
   <li>Primer Avance de Proyecto [PDF] <b>Visitar en</b> https://drive.google.com/file/d/10CMMi6z7IHpbYLddHGY9u2A45O8WJHYa/view?usp=sharing </li>
   <li>Mockups de Proyecto [PDF] <b>Visitar en</b> https://drive.google.com/file/d/1pZTiZRIL5FHwGr9DGefXo5vMBLeyMefj/view?usp=sharing </li>
-  <li>Documentación de API (Desarrollada con nodeJS y Express) <b>Visitar en</b> https://documenter.getpostman.com/view/13637029/UV5RnfwR </li>
+  <li>Documentación de API (Desarrollada con nodeJS y Express) <b>Visitar en</b> https://documenter.getpostman.com/view/13637029/UV5RnfwR</li>
   <li>Enlace a API <b>Visitar en</b> https://rest-server-dps-api.herokuapp.com/ </li>
+  <li>Github de creación de la API <b>Visitar en</b>https://github.com/BrayanGamez/Interns_projects_backend</li>
   <li>Manual Técnico [Cloud] <b>Visitar en</b> https://drive.google.com/file/d/1F0PxrKd0CDotdkvjOMkknaQP1YoYAskI/view?usp=sharing </li>
   <li>Manual de usuario [Cloud] <b>Visitar en</b> https://drive.google.com/drive/folders/1OKNYBNmoz8oMWdvNZSD1dCRa9yXY2gqd?usp=sharing </li>
 </ul>
