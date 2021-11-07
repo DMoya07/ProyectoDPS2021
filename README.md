@@ -32,20 +32,24 @@
     <li>No se podrá utilizar para fines comerciales.</li>
     <li>Se puede distribuir obras derivadas bajo una licencia idéntica a la licencia que regula la original.</li>
   </ol>
+  
+<h1>Presentación de Proyectp - Primer Avance 📂</h1>
+<p>Primer Avance de Proyecto [PDF] <b>Visitar en</b> https://drive.google.com/file/d/10CMMi6z7IHpbYLddHGY9u2A45O8WJHYa/view?usp=sharing</p>
+
+<h1>Vídeo explicativo - Segundo Avance 📹</h1>
+<p>Enlace a vídeo de segundo avance - <b>Visualizar:</b> https://www.youtube.com/watch?v=-4S_k7FRCvE </p>
 
 <h1>Enlaces de interés ⛓️</h1>
 <ul>
   <li>Tablero de proyecto [Trello] <b>Visitar en</b> https://trello.com/b/RBIj1zL2/proyecto </li>
-  <li>Primer Avance de Proyecto [PDF] <b>Visitar en</b> https://drive.google.com/file/d/10CMMi6z7IHpbYLddHGY9u2A45O8WJHYa/view?usp=sharing </li>
   <li>Mockups de Proyecto [PDF] <b>Visitar en</b> https://drive.google.com/file/d/1pZTiZRIL5FHwGr9DGefXo5vMBLeyMefj/view?usp=sharing </li>
   <li>Documentación de API (Desarrollada con nodeJS y Express) <b>Visitar en</b> https://documenter.getpostman.com/view/13637029/UV5RnfwR</li>
   <li>Enlace a API <b>Visitar en</b> https://rest-server-dps-api.herokuapp.com/ </li>
-  <li>Github de creación de la API <b>Visitar en</b>https://github.com/BrayanGamez/Interns_projects_backend</li>
   <li>Manual Técnico [Cloud] <b>Visitar en</b> https://drive.google.com/file/d/1F0PxrKd0CDotdkvjOMkknaQP1YoYAskI/view?usp=sharing </li>
   <li>Manual de usuario [Cloud] <b>Visitar en</b> https://drive.google.com/drive/folders/1OKNYBNmoz8oMWdvNZSD1dCRa9yXY2gqd?usp=sharing </li>
+  <li>Github de creación de la API <b>Visitar en</b>https://github.com/BrayanGamez/Interns_projects_backend</li>
 </ul>
 
-<h1>Vídeo explicativo - Segundo Avance 📹</h1>
-<p>Enlace a vídeo de segundo avance - <b>Visualizar:</b> https://www.youtube.com/watch?v=-4S_k7FRCvE </p>
+
 
 
