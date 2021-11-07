@@ -25,7 +25,7 @@
   <li>José Miguel Pérez Quintanilla - Grupo Teórico: <b>01T</b></li>
 </ul>
 
-<h1>Licencia Creative-Commons 📃</h1>
+<h1>Licencia Creative-Commons 📃🔐</h1>
 <p>Se utilizará la licencia Atribución-No Comercial-Compartir Igual <b>(CC BY-NC-SA 4.0)</b> Con esta licencia se obtienen las siguiente condiciones:</p>
   <ol>
     <li>El beneficiario de la licencia tiene derecho a poder copiar, distribuir, exhibir y representar la obra en cuestión y hacer derivadas de esta siempre y cuando se reconozca y se cite la obra de la forma especificada por el autor.</li>
@@ -33,7 +33,7 @@
     <li>Se puede distribuir obras derivadas bajo una licencia idéntica a la licencia que regula la original.</li>
   </ol>
   
-<h1>Presentación de Proyectp - Primer Avance 📂</h1>
+<h1>Presentación de Proyecto - Primer Avance 📂</h1>
 <p>Primer Avance de Proyecto [PDF] <b>Visitar en</b> https://drive.google.com/file/d/10CMMi6z7IHpbYLddHGY9u2A45O8WJHYa/view?usp=sharing</p>
 
 <h1>Vídeo explicativo - Segundo Avance 📹</h1>
