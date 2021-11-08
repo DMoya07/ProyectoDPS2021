@@ -48,4 +48,5 @@
   <li>Manual Técnico [Cloud] <b>Visitar en</b> https://drive.google.com/file/d/1UOYYWk7kDLa1MaMJF9oFhRaMMyxwoJ1b/view?usp=sharing </li>
   <li>Manual de Usuario [Cloud] <b>Visitar en</b> https://drive.google.com/file/d/1a_QmCR7O9YRnD_d1ZJx4j0f1MjDxUaaV/view?usp=sharing </li>
   <li>Github de creación de la API <b>Visitar en</b> https://github.com/BrayanGamez/Interns_projects_backend</li>
+  <li>Github de aplicación de Administradores <b>Visitar en</b> https://github.com/DMoya07/ProyectoDPS2021_ADMIN</li>
 </ul>
