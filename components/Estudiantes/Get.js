@@ -14,7 +14,9 @@ const Get = ({ navigation }) => {
 
   const getUserData = async () => {
     try {
-      let response = await fetch('https://rest-server-dps-api.herokuapp.com/Api/scholars?desde=0&limite=5');
+      let response = await fetch(
+        'https://rest-server-dps-api.herokuapp.com/Api/scholars?desde=0&limite=5'
+      );
       let json = await response.json();
       setUser(json.Scholars);
     } catch (error) {
@@ -28,9 +30,12 @@ const Get = ({ navigation }) => {
 
   const renderItem = ({ item }) => {
     return (
-      <TouchableOpacity onPress={()=>navigation.navigate('Detail', {
-        item: item
-      })}>
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate('Detail', {
+            item: item,
+          })
+        }>
         <View
           style={{
             borderBottomWidth: 1,

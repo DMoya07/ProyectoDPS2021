@@ -6,193 +6,120 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  Alert,
 } from 'react-native';
 
 // create a component
 const Detail = ({ route, navigation }) => {
   const { item } = route.params;
 
-  const [uni, setUni] = useState({
-    nombre: item.nombre,
-    direccion: item.direccion,
-    correo: item.correo,
-    telefono: item.telefono,
+  const [user, setUser] = useState({
+    name: item.name,
+    gender: item.gender,
+    email: item.email,
+    status: item.status,
   });
 
-  const onChangeNombre = (value) => {
-    setUni({ ...uni, nombre: value });
+  const onChangeName = (value) => {
+    setUser({ ...user, name: value });
   };
 
-  const onChangeDireccion = (value) => {
-    setUni({ ...uni, direccion: value });
+  const onChangeGender = (value) => {
+    setUser({ ...user, gender: value });
   };
 
-  const onChangeCorreo = (value) => {
-    setUni({ ...uni, telefono: value });
+  const onChangeEmail = (value) => {
+    setUser({ ...user, email: value });
   };
 
-  const onChangeTelefono = (value) => {
-    setUni({ ...uni, status: value });
+  const onChangeStatus = (value) => {
+    setUser({ ...user, status: value });
   };
 
-  //se utiliza para loguearse
-  const LogeoAdmin = async (correo = '', password = '') => {
-    var raw2 = { correo, password };
-    var requestOptions = {
-      method: 'POST',
-      body: JSON.stringify(raw2),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
+  const updateData = () => {
+    var myHeaders = new Headers();
 
-    const tokenAuth = await fetch(
-      'https://rest-server-dps-api.herokuapp.com/api/auth/login',
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => JSON.parse(result))
-      .then((data) => data.token)
-      .catch((error) => console.log('error', error));
-    return tokenAuth;
-  };
-
-  //actualiza los datos
-  const updateData = async (token = '', informacion = {}, uid) => {
-    var requestOptions = {
-      method: 'PUT',
-      headers: {
-        'x-token': token,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(informacion),
-      redirect: 'follow',
-    };
-
-    const resultado = await fetch(
-      'https://rest-server-dps-api.herokuapp.com/Api/universities/' + item.uid,
-      requestOptions
-    )
-      .then((response) => {
-        response.text();
-        navigation.push('Get');
-      })
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log('error', error));
-
-    return resultado;
-  };
-
-  const mainUpdate = async () => {
-    const token = await LogeoAdmin('Kaguya65@hotmail.com', 'Pablito25');
-    var nuevaUniversidad = {
-      nombre: uni.nombre,
-      direccion: uni.direccion,
-      correo: uni.correo,
-      telefono: uni.telefono,
-    };
-
-    const result = updateData(token, nuevaUniversidad, item.uid);
-  };
-
-  const mainDelete = async () => {
-    const token = await LogeoAdmin('Kaguya65@hotmail.com', 'Pablito25');
-    // var nuevaUniversidad = {nombre: uni.nombre, direccion: uni.direccion,correo:uni.direccion, telefono:uni.telefono};
-    const result = deleteData(token, item.uid);
-  };
-
-  //eliminar datos
-  const deleteData = async (token = '', uid) => {
-    var requestOptions = {
-      method: 'DELETE',
-      headers: {
-        'x-token': token,
-        'Content-Type': 'application/json',
-      },
-      // body:JSON.stringify(informacion),
-      //redirect: 'follow',
-    };
-    const resultado = await fetch(
-      'https://rest-server-dps-api.herokuapp.com/Api/universities/' + item.uid,
-      requestOptions
-    )
-      .then((response) => {
-        response.text();
-        navigation.push('Get');
-      })
-      .then((response) => {
-        response.text();
-        navigation.push('Get');
-      })
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log('error', error));
-    return resultado;
-  };
-
-  //Alert update
-  const UpdateButtonAlert = () =>
-    Alert.alert(
-      'Actualizar Universidad',
-      '¿Desea actualizar esta universidad?',
-      [
-        {
-          text: 'Cancelar',
-          onPress: () => console.log('Cancel Pressed'),
-          style: 'cancel',
-        },
-        {
-          text: 'Confirmar',
-          onPress: mainUpdate,
-        },
-      ]
+    myHeaders.append(
+      'Authorization',
+      'Bearer 62ddfa7559d5fdec64517e3ab70ee4fd60b2244e71fa042a44f914f8fa688263'
     );
 
-  //Alert delete
-  const DeleteButtonAlert = () =>
-    Alert.alert('Eliminar Universidad', '¿Desea eliminar esta universidad?', [
-      {
-        text: 'Cancelar',
-        onPress: () => console.log('Cancel Pressed'),
-        style: 'cancel',
-      },
-      {
-        text: 'Confirmar',
-        onPress: mainDelete,
-      },
-    ]);
+    myHeaders.append('Content-Type', 'application/json');
+
+    fetch('https://gorest.co.in/public-api/users/' + item.id, {
+      method: 'PATCH',
+      headers: myHeaders,
+      body: JSON.stringify({
+        name: user.name,
+        gender: user.gender,
+        email: user.email,
+        status: user.status,
+      }),
+    })
+      .then((response) => {
+        response.text();
+        navigation.push('Get');
+      })
+      .then((result) => console.log(result))
+      .catch((error) => console.log(error));
+  };
+
+  const deleteData = () => {
+    var myHeaders = new Headers();
+
+    myHeaders.append(
+      'Authorization',
+      'Bearer 62ddfa7559d5fdec64517e3ab70ee4fd60b2244e71fa042a44f914f8fa688263'
+    );
+
+    myHeaders.append('Content-Type', 'application/json');
+
+    fetch('https://gorest.co.in/public-api/users/' + item.id, {
+      method: 'DELETE',
+      headers: myHeaders,
+      body: JSON.stringify({
+        name: user.name,
+        gender: user.gender,
+        email: user.email,
+        status: user.status,
+      }),
+    })
+      .then((response) => {
+        response.text();
+        navigation.push('Get');
+      })
+      .then((result) => console.log(result))
+      .catch((error) => console.log(error));
+  };
 
   return (
     <View style={styles.container}>
       <TextInput
-        placeholder={'Nombre'}
-        onChangeText={(value) => onChangeNombre(value)}
+        placeholder={'Name'}
+        onChangeText={(value) => onChangeName(value)}
         style={styles.input}
-        value={uni.nombre}
+        value={user.name}
       />
       <TextInput
-        placeholder={'Direccion'}
-        onChangeText={(value) => onChangeDireccion(value)}
+        placeholder={'Gender'}
+        onChangeText={(value) => onChangeGender(value)}
         style={styles.input}
-        value={uni.direccion}
+        value={user.gender}
       />
       <TextInput
-        placeholder={'Correo'}
-        onChangeText={(value) => onChangeCorreo(value)}
+        placeholder={'Email'}
+        onChangeText={(value) => onChangeEmail(value)}
         style={styles.input}
-        value={uni.correo}
+        value={user.email}
       />
       <TextInput
-        placeholder={'Telefono'}
-        onChangeText={(value) => onChangeTelefono(value)}
+        placeholder={'Status'}
+        onChangeText={(value) => onChangeStatus(value)}
         style={styles.input}
-        value={uni.telefono}
+        value={user.status}
       />
 
       <View style={{ flexDirection: 'row' }}>
-        <TouchableOpacity onPress={UpdateButtonAlert}>
+        <TouchableOpacity onPress={updateData}>
           <View style={{ backgroundColor: '#09009B', padding: 10 }}>
             <Text style={{ color: 'white', textAlign: 'center' }}>
               Actualizar
@@ -200,7 +127,7 @@ const Detail = ({ route, navigation }) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={DeleteButtonAlert}>
+        <TouchableOpacity onPress={deleteData}>
           <View style={{ backgroundColor: 'red', padding: 10 }}>
             <Text style={{ color: 'white', textAlign: 'center' }}>
               Eliminar

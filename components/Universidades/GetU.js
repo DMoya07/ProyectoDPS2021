@@ -10,34 +10,38 @@ import {
 
 // create a component
 const Get = ({ navigation }) => {
-  const [uni, setUni] = useState();
+  const [user, setUser] = useState();
 
-  const getUniData = async () => {
+  const getUserData = async () => {
     try {
-      let response = await fetch('https://rest-server-dps-api.herokuapp.com/Api/universities?desde=0&limite=10');
+      let response = await fetch('https://gorest.co.in/public-api/users');
       let json = await response.json();
-      setUni(json.Universities);
+      setUser(json.data);
     } catch (error) {
       console.error(error);
     }
   };
 
   useState(() => {
-    getUniData();
+    getUserData();
   }, []);
 
   const renderItem = ({ item }) => {
     return (
-      <TouchableOpacity onPress={()=>navigation.navigate('Detail', {
-        item: item
-      })}>
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate('Detail', {
+            item: item,
+          })
+        }>
         <View
           style={{
             borderBottomWidth: 1,
             borderBottomColor: '#ccc',
             padding: 5,
           }}>
-          <Text style={{ fontWeight: 'bold' }}>{item.nombre}</Text>
+          <Text style={{ fontWeight: 'bold' }}>{item.name}</Text>
+          <Text>{item.email}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -46,9 +50,9 @@ const Get = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <FlatList
-        data={uni}
+        data={user}
         renderItem={renderItem}
-        keyExtractor={(item) => item.uid}
+        keyExtractor={(item) => item.id}
       />
     </View>
   );

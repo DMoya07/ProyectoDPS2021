@@ -10,6 +10,7 @@ import {
   ScrollView,
   Alert,
   FlatList,
+  ImageBackground,
 } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
@@ -17,14 +18,46 @@ import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 export default function home(props) {
   const { navigation } = props;
   const [modalVisible, setModalVisible] = useState(false);
+  const [currentDate, setCurrentDate] = useState('');
+
+  useEffect(() => {
+    const LogeoStudent = async (correo = '', password = '') => {
+      var raw2 = { correo, password };
+      var requestOptions = {
+        method: 'POST',
+        body: JSON.stringify(raw2),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+
+      const tokenAuth = await fetch(
+        'https://rest-server-dps-api.herokuapp.com/api/auth/login',
+        requestOptions
+      )
+        .then((response) => response.text())
+        .then((result) => JSON.parse(result))
+        .then((data) => data.token)
+        .catch((error) => console.log('error', error));
+      return tokenAuth;
+    };
+
+    var date = new Date().getDate(); //Current Date
+    var month = new Date().getMonth() + 1; //Current Month
+    var year = new Date().getFullYear(); //Current Year
+    var hours = new Date().getHours(); //Current Hours
+    var min = new Date().getMinutes(); //Current Minutes
+    var sec = new Date().getSeconds(); //Current Seconds
+    setCurrentDate(date + '/' + month + '/' + year);
+  }, []);
   return (
     <>
       <View
         style={{
-          flexDirection: 'row',
-          height: 100,
-          padding: 20,
+          flexDirection: 'column',
+          height: 710,
           justifyContent: 'space-between',
+          backgroundColor: '#DCDCDC',
         }}>
         <Modal
           animationType="slide"
@@ -47,43 +80,58 @@ export default function home(props) {
         </Modal>
         <View
           style={{
-            borderWidth: 1,
             borderRadius: 5,
-            flex: 0.5,
+            flex: 0.3,
             height: 350,
-            marginRight: 6,
             alignItems: 'center',
+            backgroundColor: '#DCDCDC',
           }}>
+          {/*aqui*/}
           <Text
             style={{
               fontFamily: 'sans-serif-condensed',
               padding: 5,
               textAlign: 'center',
               fontWeight: 'bold',
-              fontSize: 18,
+              fontSize: 35,
+              color: 'black',
             }}>
-            Alumno
+            SAB
           </Text>
-          <FontAwesome5 name="user" size={80} color="#3D56B2" />
-
+          <FontAwesome5 name="user" size={80} color="#000D6B" />
           <Text
             style={{
               fontFamily: 'sans-serif-condensed',
-              fontSize: 16,
-              padding: 5,
-              textAlign: 'center',
-              fontWeight: 'bold',
-            }}></Text>
-          <Text
-            style={{
-              fontFamily: 'sans-serif-condensed',
-              fontSize: 16,
+              fontSize: 25,
               padding: 5,
               textAlign: 'center',
               fontWeight: 'bold',
             }}>
-            Apellido
+            Bienvenido
           </Text>
+          <View style={{ flexDirection: 'row' }}>
+            <Text
+              style={{
+                fontFamily: 'sans-serif-condensed',
+                fontSize: 20,
+                padding: 5,
+                textAlign: 'center',
+                fontWeight: 'bold',
+              }}>
+              Fecha:
+            </Text>
+            <Text
+              style={{
+                fontFamily: 'sans-serif-condensed',
+                fontSize: 20,
+                padding: 5,
+                textAlign: 'center',
+                fontWeight: 'bold',
+              }}>
+              {currentDate}
+            </Text>
+          </View>
+          {/*aqui*/}
         </View>
         <View
           style={[
@@ -91,18 +139,54 @@ export default function home(props) {
             {
               // Try setting `flexDirection` to `"row"`.
               flexDirection: 'column',
-              height: 350,
-              borderRadius: 5,
+              height: 'auto',
+              flex: 0.6,
+              backgroundColor: '#000D6B',
+              paddingTop: 25,
             },
           ]}>
-          <View style={{ flex: 0.3 }}>
+          <View style={{ flex: 0.5 }}>
+            <Text
+              style={{
+                fontFamily: 'sans-serif-condensed',
+                padding: 3,
+                textAlign: 'center',
+                fontWeight: 'bold',
+                fontSize: 20,
+                color: 'white',
+              }}>
+              Recordatorios
+            </Text>
+            <FlatList
+              style={{ padding: 3 }}
+              data={[
+                { key: '• Entrega de documetos' },
+                { key: '• Pagar mensualidad' },
+                { key: '• Semana 11' },
+                { key: '• Revisar Aula Virtual' },
+              ]}
+              renderItem={({ item }) => (
+                <Text
+                  style={{
+                    fontFamily: 'sans-serif-condensed',
+                    fontSize: 18,
+                    color: 'white',
+                    marginLeft: 110,
+                  }}>
+                  {item.key}
+                </Text>
+              )}
+            />
+          </View>
+          <View style={{ flex: 0.6, alignItems: 'center' }}>
             <Text
               style={{
                 padding: 5,
                 textAlign: 'center',
                 fontWeight: 'bold',
                 fontFamily: 'sans-serif-condensed',
-                fontSize: 18,
+                fontSize: 20,
+                color: 'white',
               }}>
               Calendario
             </Text>
@@ -112,51 +196,7 @@ export default function home(props) {
               <Text style={styles.textStyle}>Mostrar</Text>
             </Pressable>
           </View>
-          <View style={{ flex: 0.7 }}>
-            <Text
-              style={{
-                fontFamily: 'sans-serif-condensed',
-                padding: 5,
-                textAlign: 'center',
-                fontWeight: 'bold',
-                fontSize: 18,
-              }}>
-              Recordatorios
-            </Text>
-            <FlatList
-              style={{ padding: 10 }}
-              data={[
-                { key: '- Entrega de documetos' },
-                { key: '- Pagar mensualidad' },
-                { key: '- Semana 11' },
-                { key: '- Revisar Aula Virtual' },
-              ]}
-              renderItem={({ item }) => (
-                <Text
-                  style={{ fontFamily: 'sans-serif-condensed', fontSize: 14 }}>
-                  {item.key}
-                </Text>
-              )}
-            />
-          </View>
         </View>
-      </View>
-      <View style={{ flexDirection: 'column', marginTop: 280 }}>
-        <Pressable
-          style={[styles.button1, styles.buttonOpen1]}
-          onPress={() => navigation.navigate('students')}>
-          <Text style={styles.textStyle1}>Ver Perfil</Text>
-        </Pressable>
-        <Pressable
-          style={[styles.button1, styles.buttonOpen2]}
-          onPress={() => navigation.navigate('universities')}>
-          <Text style={styles.textStyle1}>Ver registro academico</Text>
-        </Pressable>
-        <Pressable
-          style={[styles.button1, styles.buttonOpen3]}
-          onPress={() => navigation.navigate('docs')}>
-          <Text style={styles.textStyle1}>Entrega de Documentación</Text>
-        </Pressable>
       </View>
     </>
   );
@@ -174,7 +214,7 @@ const styles = StyleSheet.create({
     marginTop: 22,
   },
   modalView: {
-    margin: 20,
+    margin: 10,
     backgroundColor: 'white',
     borderRadius: 20,
     padding: 35,
@@ -189,10 +229,12 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   button: {
-    borderRadius: 20,
+    borderRadius: 10,
     padding: 10,
     elevation: 2,
     marginTop: 10,
+    margin: 10,
+    width: '50%',
   },
   button1: {
     borderRadius: 20,
@@ -202,8 +244,9 @@ const styles = StyleSheet.create({
     height: 60,
   },
   buttonOpen: {
-    backgroundColor: '#3D56B2',
+    backgroundColor: '#39A388',
     margin: 2,
+    height: 50,
   },
   buttonOpen1: {
     backgroundColor: '#F0A500',
@@ -229,6 +272,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     fontFamily: 'sans-serif-condensed',
+    fontSize: 18,
   },
   textStyle1: {
     color: 'white',
